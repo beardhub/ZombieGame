@@ -49,22 +49,22 @@ function MouseFramework(){
 			that.down();
 		}
 		down.bind(this,mouse);*/
-		document.addEventListener("click",(function(mouse,e){			e.preventDefault();	mouse.upos(e);	that.click();	}).bind(that,mouse));
-		document.addEventListener("contextmenu",(function(mouse,e){	e.preventDefault();	mouse.upos(e);	that.rclick();	}).bind(that,mouse));
-		document.addEventListener("touchstart",function(e){			e.preventDefault(); 
+		document.body.addEventListener("click",(function(mouse,e){			e.preventDefault();	mouse.upos(e);	that.click();	}).bind(that,mouse));
+		document.body.addEventListener("contextmenu",(function(mouse,e){	e.preventDefault();	mouse.upos(e);	that.rclick();	}).bind(that,mouse));
+		document.body.addEventListener("touchstart",function(e){			e.preventDefault(); 
 			mouse.upos(e.touches[0]);
 			console.log(e.touches[0]);
 			mouse.down = true;	
 			that.down();
 			});
-		document.addEventListener("mousedown",function(e){			e.preventDefault(); mouse.upos(e);mouse.down = true;	that.down();});
+		document.body.addEventListener("mousedown",function(e){			e.preventDefault(); mouse.upos(e);mouse.down = true;	that.down();});
 		//down);//.bind(this,mouse));//(function(mouse,e){	e.preventDefault();	mouse.upos(e);	that.down();	}).bind(that,mouse));
-		document.addEventListener("mouseup",function(e){				e.preventDefault();	mouse.upos(e);mouse.down = false;	that.up();	});
-		document.addEventListener("touchend",function(e){				e.preventDefault();	mouse.upos(e);mouse.down = false;	that.up();	});
+		document.body.addEventListener("mouseup",function(e){				e.preventDefault();	mouse.upos(e);mouse.down = false;	that.up();	});
+		document.body.addEventListener("touchend",function(e){				e.preventDefault();	mouse.upos(e);mouse.down = false;	that.up();	});
 		//(function(mouse,e){		e.preventDefault();	mouse.upos(e);	that.up();		}).bind(that,mouse));
-		document.addEventListener("mousemove",(function(mouse,e){		e.preventDefault();	setTimeout(mouse.upos(e),20);	/*that.moved();*/	}).bind(that,mouse));
-		document.addEventListener("drag",(function(e){		e.preventDefault();}));//	mouse.upos(e);	/*that.moved();*/	}).bind(that,mouse));
-		document.addEventListener("touchmove",(function(mouse,e){		e.preventDefault();	
+		document.body.addEventListener("mousemove",(function(mouse,e){		e.preventDefault();mouse.upos(e);/*	setTimeout(mouse.upos(e),20);	/*that.moved();*/	}).bind(that,mouse));
+		document.body.addEventListener("drag",(function(e){		e.preventDefault();}));//	mouse.upos(e);	/*that.moved();*/	}).bind(that,mouse));
+		document.body.addEventListener("touchmove",(function(mouse,e){		e.preventDefault();	
 			mouse.upos(e.touches[0]);	/*that.moved();*/	}).bind(that,mouse));
 		
 		
